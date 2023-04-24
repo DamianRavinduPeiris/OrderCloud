@@ -4,7 +4,7 @@ img{
 }
 .navBarText{
     position: relative;
-    left: 300px;
+    left: 290px;
     text-align: center;
     font-weight: bold;
     font-family: 'Tilt Warp', cursive;
@@ -15,10 +15,22 @@ img{
 .navbar-toggler-icon{
     background-color: white;
 }
-@media screen and (max-width: 932px) {
+#lsToggle{
+    position: relative;
+    left: 50px;
+    top: 50px;
+}
+.lsDropDown{
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Tilt Warp', cursive;
+}
+@media screen and (max-width:1530px) {
     .navBarText{
-        position: relative;
         left: 0;
     }
-    
+    #lsToggle{
+        left: 0;
+        top:0;
+    }
 }
