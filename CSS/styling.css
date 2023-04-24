@@ -2,6 +2,10 @@ img{
     height: 200px;
     width: 200px;
 }
+.commonText{
+    font-family: 'Tilt Warp', cursive;
+    font-weight: bold;
+}
 .navBarText{
     position: relative;
     left: 290px;
@@ -24,6 +28,21 @@ img{
     text-align: center;
     font-weight: bold;
     font-family: 'Tilt Warp', cursive;
+}
+#heading1{
+    text-align: center;
+    position: relative;
+    top:160px;
+}
+#addCustomer{
+    position: relative;
+    top: 180px;
+}
+.modal-header{
+    margin: auto;
+    background-color: yellow;
+    text-decoration: underline;
+    text-decoration-thickness: 5px;
 }
 @media screen and (max-width:1530px) {
     .navBarText{

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta content="A simple POS system built with BootStrap 5." property="og:description">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>OrderCloud - POS.🛒</title>
     <!--Icon.👇-->
@@ -75,6 +76,52 @@
         </div>
     </div>
 </nav>
+<main>
+    <h1 class="commonText" id="heading1"><mark>Manage Customers.</mark></h1><br><br>
+    <!-- Button trigger modal for adding a customer - Start.-->
+    <button data-aos="zoom-in-up" type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal" id="addCustomer">
+        Add a Customer.
+    </button>
+    <!-- Button trigger modal for adding a customer - End.-->
+
+    <!-- Add Customer Modal - Start. -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 commonText" id="customerAddMoadlHeading">Enter details of the Customer.</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="cId" class="form-label commonText">Customer ID.</label>
+                        <input type="text" class="form-control" id="cId" placeholder="C001">
+                    </div>
+                    <div class="mb-3">
+                        <label for="cName" class="form-label commonText">Customer Name.</label>
+                        <input type="text" class="form-control" id="cName" placeholder="Damian Peiris.">
+                    </div>
+                    <div class="mb-3">
+                        <label for="cAddress" class="form-label commonText">Customer Address.</label>
+                        <input type="text" class="form-control" id="cAddress" placeholder="Moratuwa.">
+                    </div>
+                    <div class="mb-3">
+                        <label for="cSalary" class="form-label commonText">Customer Salary.</label>
+                        <input type="text" class="form-control" id="cSalary" placeholder="RS.100,000">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Add.</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close.</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Add Customer Modal - End. -->
+
+
+</main>
 
 
 <!--BootStrap 5 JS.-->
