@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>POS.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OrderCloud - POS.🛒</title>
     <!--Icon.👇-->
     <link href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWtX4EAr-3XF-iC34LXtwN9k4HAwgaP4DOOguLg2O4-g&s"
           rel="icon" type="image/x-icon">
@@ -10,7 +11,7 @@
     <link rel="stylesheet" href="CSS/styling.css">
     <!--Normalize CCS.👇-->
     <link rel="stylesheet" href="CSS/normalize.css">
-    <!--BootStrap 5.👇-->
+    <!--BootStrap 5. (CCS.)👇-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <!--Font Awesome.👇-->
     <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css" rel="stylesheet"
@@ -24,16 +25,45 @@
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap" rel="stylesheet">
 </head>
-<body>
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+        <img src="assets/logo.svg" alt="">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active navBarText fs-5 text-white" aria-current="page" href="#">🏠Home. </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link navBarText fs-5 text-white" href="#">🧑Manage Customers.</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link navBarText fs-5 text-white" href="#">🍉Manage Items.</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link navBarText fs-5 text-white" href="#">🛒Orders Manager.</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link navBarText fs-5 text-white" href="#">💸Invoice Manager.</a>
+                </li>
+                <li class="nav-item dropdown">
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
 
 
-
-
+<!--BootStrap 5 JS.-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 <!--AOS - Animate on scroll library.(JS)(https://github.com/michalsnik/aos) or (https://michalsnik.github.io/aos/)👇-->
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <!--Initializing AOS.👇-->
 <script>
     AOS.init();
 </script>
-</body>
+
 </html>
