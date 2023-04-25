@@ -27,10 +27,11 @@
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap" rel="stylesheet">
 </head>
-<nav class="navbar navbar-expand-lg bg-dark animate__animated  animate__zoomInUp">
+<nav class="navbar nav-underline navbar-expand-lg bg-dark animate__animated  animate__zoomInUp">
     <div class="container-fluid">
         <img alt="" src="assets/logo.svg">
-        <button aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+        <button aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler"
                 data-bs-target="#navbarNavDropdown" data-bs-toggle="collapse" type="button">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -40,10 +41,11 @@
                     <a aria-current="page" class="nav-link active navBarText fs-5 text-white" href="#">🏠 Home. </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link navBarText fs-5 text-white" href="#heading1" data-aos="zoom-in">🧑 Manage Customers.</a>
+                    <a class="nav-link navBarText fs-5 text-white" data-aos="zoom-in" href="#heading1">🧑 Manage
+                        Customers.</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link navBarText fs-5 text-white" href="#">🍉 Manage Items.</a>
+                    <a class="nav-link navBarText fs-5 text-white" href="#heading2">🍉 Manage Items.</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link navBarText fs-5 text-white" href="#">🛒 Orders Manager.</a>
@@ -133,7 +135,8 @@
         <!-- Add Customer Modal - End. -->
 
         <!-- Button trigger modal for updating a customer - Start. -->
-        <button class="btn btn-success" data-aos="zoom-in-up" data-bs-target="#updateCustomerModal" data-bs-toggle="modal"
+        <button class="btn btn-success" data-aos="zoom-in-up" data-bs-target="#updateCustomerModal"
+                data-bs-toggle="modal"
                 id="updateCustomerButton" type="button">
             Update a Customer.
         </button>
@@ -176,7 +179,8 @@
             </div>
         </div>
         <!-- Button trigger modal for deleting a customer - Start. -->
-        <button class="btn btn-danger " data-aos="zoom-in-up" data-bs-target="#deleteCustomerModal" data-bs-toggle="modal"
+        <button class="btn btn-danger " data-aos="zoom-in-up" data-bs-target="#deleteCustomerModal"
+                data-bs-toggle="modal"
                 id="deleteCustomerButton" type="button">
             Delete a Customer.
         </button>
@@ -222,7 +226,8 @@
     </div>
 
     <!--Table for Customers -Start..-->
-    <table class="table table-hover table-dark table-striped animate__animated animate__bounce" data-aos="zoom-in" id="customerTable">
+    <table class="table table-hover table-dark table-striped animate__animated animate__bounce" data-aos="zoom-in"
+           id="customerTable">
         <thead>
         <tr>
             <th scope="col">Customer ID.</th>
@@ -256,7 +261,7 @@
     <!--Customer Manager - End.-->
 
     <!--Store Items Manager - Start.-->
-    <h1 class="commonText"  id="heading2" data-aos="zoom-in">
+    <h1 class="commonText" data-aos="zoom-in" id="heading2">
         <mark>Manage Store Items.</mark>
     </h1>
     <br><br>
@@ -426,9 +431,254 @@
     </table>
 
     <!--Table for Item -End.-->
-
-
     <!--Store Items Manager - End.-->
+    <!--Order Manager - Start.-->
+    <h1 class="commonText" id="heading3">
+        <mark>Manage Orders.</mark>
+    </h1>
+    <div class="buttonContainer3">
+        <!-- Button trigger modal for adding an Order- Start.-->
+        <button class="btn btn-primary " data-aos="zoom-in-up" data-bs-target="#addOrderModal" data-bs-toggle="modal"
+                id="addOrderButton" type="button">
+            Add an Order.
+        </button>
+        <!-- Button trigger modal for adding an Order - End.-->
+
+        <!-- Add order Modal - Start. -->
+        <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="addOrderModal"
+             tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5 commonText">Enter details of the Order.</h1>
+                        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label commonText" for="oId">Order ID.</label>
+                            <input class="form-control" id="oId" placeholder="OOO1" type="text">
+                        </div>
+                        <div class="dropdown">
+                            <button aria-expanded="false" class="commonText btn btn-secondary dropdown-toggle"
+                                    data-bs-toggle="dropdown" type="button">
+                                Customer ID's.
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">C001.</a></li>
+                                <li><a class="dropdown-item" href="#">C002.</a></li>
+                                <li><a class="dropdown-item" href="#">C003.</a></li>
+                            </ul>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <button aria-expanded="false" class="commonText btn btn-secondary dropdown-toggle"
+                                    data-bs-toggle="dropdown" type="button">
+                                Item ID's.
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">I001.</a></li>
+                                <li><a class="dropdown-item" href="#">I002.</a></li>
+                                <li><a class="dropdown-item" href="#">I003.</a></li>
+                            </ul>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <button aria-expanded="false" class="commonText btn btn-secondary dropdown-toggle"
+                                    data-bs-toggle="dropdown" type="button">
+                                Item Names.
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Item 1.</a></li>
+                                <li><a class="dropdown-item" href="#">Item 2.</a></li>
+                                <li><a class="dropdown-item" href="#">Item 3.</a></li>
+                            </ul>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label commonText" for="iPriceField">Item Price.</label>
+                            <input class="form-control" id="iPriceField" placeholder="RS:1000/=" type="text">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label commonText" for="iQtyField">Item QTY.</label>
+                            <input class="form-control" id="iQtyField" placeholder="1000" type="text">
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="button">Add.</button>
+                        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close.</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add Item Modal - End. -->
+
+        <!-- Button trigger modal for updating a order- Start. -->
+        <button class="btn btn-success" data-aos="zoom-in-up" data-bs-target="#updateOrderModal" data-bs-toggle="modal"
+                id="updateOrderButton" type="button">
+            Update an Order.
+        </button>
+        <!-- Button trigger modal for updating an order - End. -->
+        <!-- Update Order Modal - Start. -->
+        <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="updateOrderModal"
+             tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5 commonText">Enter details of the Item!</h1>
+                        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label commonText" for="oId">Order ID.</label>
+                            <input class="form-control" id="uOId" placeholder="OOO1" type="text">
+                        </div>
+                        <div class="dropdown">
+                            <button aria-expanded="false" class="commonText btn btn-secondary dropdown-toggle"
+                                    data-bs-toggle="dropdown" type="button">
+                                Customer ID's.
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">C001.</a></li>
+                                <li><a class="dropdown-item" href="#">C002.</a></li>
+                                <li><a class="dropdown-item" href="#">C003.</a></li>
+                            </ul>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <button aria-expanded="false" class="commonText btn btn-secondary dropdown-toggle"
+                                    data-bs-toggle="dropdown" type="button">
+                                Item ID's.
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">I001.</a></li>
+                                <li><a class="dropdown-item" href="#">I002.</a></li>
+                                <li><a class="dropdown-item" href="#">I003.</a></li>
+                            </ul>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <button aria-expanded="false" class="commonText btn btn-secondary dropdown-toggle"
+                                    data-bs-toggle="dropdown" type="button">
+                                Item Names.
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Item 1.</a></li>
+                                <li><a class="dropdown-item" href="#">Item 2.</a></li>
+                                <li><a class="dropdown-item" href="#">Item 3.</a></li>
+                            </ul>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label commonText" for="uOpriceField">Item Price.</label>
+                            <input class="form-control" id="uOpriceField" placeholder="RS:1000/=" type="text">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label commonText" for="uOqtyField">Item QTY.</label>
+                            <input class="form-control" id="uOqtyField" placeholder="1000" type="text">
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="button">Update.</button>
+                        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close.</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Update Order Modal - End. -->
+        <!-- Button trigger modal for deleting an order - Start. -->
+        <button class="btn btn-danger " data-aos="zoom-in-up" data-bs-target="#deleteOrderModal" data-bs-toggle="modal"
+                id="deleteOrderButton" type="button">
+            Delete an Order.
+        </button>
+        <!-- Button trigger modal for deleting an order - End. -->
+        <!-- Delete Order Modal - Start. -->
+        <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="deleteOrderModal"
+             tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5 commonText">Enter Order ID!.</h1>
+                        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label commonText" for="oId2">Order ID.</label>
+                            <input class="form-control" id="oId2" placeholder="0001" type="text">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger" type="button">Delete.</button>
+                        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close.</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Delete Item Modal - End. -->
+        <!-- Button trigger modal for getting all Items- Start. -->
+        <button class="btn btn-dark" data-aos="zoom-in-up" id="getAllOrdersButton" type="button">Get all Orders.
+        </button>
+
+        <!-- Button trigger modal for getting all Items- End. -->
+        <!--Items search bar - Start.-->
+        <nav class="navbar bg-body-tertiary" data-aos="zoom-in-up" id="ordersSearchBar">
+            <div class="container-fluid">
+                <form class="d-flex" role="search">
+                    <input aria-label="Search" class="form-control me-2" placeholder="Type something..." type="search">
+                    <button class="btn btn-outline-success" type="submit">Search.</button>
+                </form>
+            </div>
+        </nav>
+        <!--Items search bar - End.-->
+    </div>
+
+    <!--Table for Item -Start..-->
+    <table class="table table-hover table-dark table-striped" data-aos="zoom-in" id="orderTable">
+        <thead>
+        <tr>
+            <th scope="col">Order ID.</th>
+            <th scope="col">Customer ID.</th>
+            <th scope="col">Item ID.</th>
+            <th scope="col">Item Name.</th>
+            <th scope="col">Item Price.</th>
+            <th scope="col">Item QTY.</th>
+            <th scope="col">Total (LKR).</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>0OO1</td>
+            <td>C001.</td>
+            <td>I001</td>
+            <td>Chocolate Puff.</td>
+            <th scope="col">300.</th>
+            <th scope="col">10.</th>
+            <th scope="col">3000.</th>
+        </tr>
+        <tr>
+            <td>0OO2</td>
+            <td>C002.</td>
+            <td>I002</td>
+            <td>Chocolate Chip Cookies.</td>
+            <th scope="col">300.</th>
+            <th scope="col">10.</th>
+            <th scope="col">3000.</th>
+        </tr>
+        <tr>
+            <td>0OO3</td>
+            <td>C003.</td>
+            <td>I003</td>
+            <td>Chocolate Marie.</td>
+            <th scope="col">300.</th>
+            <th scope="col">10.</th>
+            <th scope="col">3000.</th>
+        </tr>
+        </tbody>
+    </table>
+
+    <!--Table for Item -End.-->
+    <!--Store Items Manager - End.-->
+
 
 </main>
 
@@ -443,5 +693,7 @@
 <script>
     AOS.init();
 </script>
+<!--My JS.-->
+<script src="script.js"></script>
 
 </html>
