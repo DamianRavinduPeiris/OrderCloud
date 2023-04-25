@@ -32,18 +32,28 @@ img{
 #heading1{
     text-align: center;
     position: relative;
-    top:160px;
+    top: 150px;
+
 }
-#addCustomer{
-    position: relative;
-    top: 180px;
-}
+
 .modal-header{
     margin: auto;
-    background-color: yellow;
+    background-color: lightblue;
     text-decoration: underline;
     text-decoration-thickness: 5px;
 }
+.buttonContainer{
+    display: flex;
+    position: relative;
+    top: 200px;
+    justify-content: space-between;
+}
+#customerTable{
+    position: relative;
+    top: 300px;
+}
+
+
 @media screen and (max-width:1530px) {
     .navBarText{
         left: 0;
@@ -52,4 +62,23 @@ img{
         left: 0;
         top:0;
     }
+    .buttonContainer{
+        flex-direction: column;
+    }
+    #addCustomerButton{
+        margin-bottom: 20px;
+    }
+    #updateCustomerButton{
+        margin-bottom: 20px;
+    }
+    #deleteCustomerButton{
+        margin-bottom: 20px;
+    }
+    #getAllCustomersButton{
+        margin-bottom: 20px;
+    }
+    #customerSearchBar{
+        margin-bottom: 20px;
+    }
+
 }
