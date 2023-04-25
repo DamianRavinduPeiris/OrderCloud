@@ -35,6 +35,12 @@ img{
     top: 150px;
 
 }
+#heading2{
+    text-align: center;
+    position: relative;
+    top: 400px;
+
+}
 
 .modal-header{
     margin: auto;
@@ -51,6 +57,16 @@ img{
 #customerTable{
     position: relative;
     top: 300px;
+}
+.buttonContainer2{
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    top: 500px;
+}
+#itemTable{
+    position: relative;
+    top: 600px;
 }
 
 
@@ -78,6 +94,24 @@ img{
         margin-bottom: 20px;
     }
     #customerSearchBar{
+        margin-bottom: 20px;
+    }
+    .buttonContainer2{
+        flex-direction: column;
+    }
+    #addItemButton{
+        margin-bottom: 20px;
+    }
+    #updateItemButton{
+        margin-bottom: 20px;
+    }
+    #deleteItemButton{
+        margin-bottom: 20px;
+    }
+    #getAllItemsButton{
+        margin-bottom: 20px;
+    }
+    #itemsSearchBar{
         margin-bottom: 20px;
     }
 
