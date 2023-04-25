@@ -47,6 +47,11 @@ img{
     top: 800px;
 
 }
+#heading4{
+    text-align: center;
+    position: relative;
+    top: 1100px;
+}
 .modal-header{
     margin: auto;
     background-color: lightblue;
@@ -88,6 +93,58 @@ img{
 #orderTable{
     position: relative;
     top: 900px;
+}
+.invoiceContainer{
+    display: flex;
+    position: relative;
+    top: 1200px;
+
+}
+.commonHeadings{
+    position: relative;
+    text-align: center;
+    top: 10px;
+    text-decoration: underline;
+
+}
+.invoiceDetails{
+    position: relative;
+    background: white;
+    left:20px;
+    height: 500px;
+    width: 500px;
+    border: 5px solid black;
+
+}
+.itemDetails{
+    position: relative;
+    background: white;
+    height: 500px;
+    width: 500px;
+    border: 5px solid black;
+    left: 60px;
+}
+.totalDetails{
+    position: relative;
+    background: white;
+    height: 500px;
+    width: 500px;
+    border: 5px solid black;
+    left: 80px;
+}
+.adjustPosition{
+    position: relative;
+    left: 25px;
+}
+#b1{
+    position: relative;
+    left:250px;
+    top: 20px;
+}
+#b2{
+    position: relative;
+    left:250px;
+    top: 20px;
 }
 body{
     background: url("https://img.freepik.com/premium-photo/abstract-supermarket-aisle-interior-blurred-defocused-background-with-bokeh-light_293060-16639.jpg");
@@ -165,6 +222,20 @@ body{
     #ordersSearchBar{
         margin-bottom: 20px;
     }
-
+    .invoiceContainer{
+        flex-direction: column;
+    }
+    .invoiceDetails{
+        left: 0;
+        margin-bottom: 20px;
+    }
+    .itemDetails{
+        left: 0;
+        margin-bottom: 20px;
+    }
+    .totalDetails{
+        left: 0;
+        margin-bottom: 20px;
+    }
 
 }

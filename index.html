@@ -48,7 +48,7 @@
                     <a class="nav-link navBarText fs-5 text-white" href="#heading2">🍉 Manage Items.</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link navBarText fs-5 text-white" href="#">🛒 Orders Manager.</a>
+                    <a class="nav-link navBarText fs-5 text-white" href="#heading3">🛒 Orders Manager.</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link navBarText fs-5 text-white" href="#">💸 Invoice Manager.</a>
@@ -510,7 +510,7 @@
                 </div>
             </div>
         </div>
-        <!-- Add Item Modal - End. -->
+        <!-- Add Order Modal - End. -->
 
         <!-- Button trigger modal for updating a order- Start. -->
         <button class="btn btn-success" data-aos="zoom-in-up" data-bs-target="#updateOrderModal" data-bs-toggle="modal"
@@ -678,7 +678,75 @@
 
     <!--Table for Item -End.-->
     <!--Store Items Manager - End.-->
+    <!--Invoice Manager - Start.-->
+    <h1 class="commonText" data-aos="zoom-in" id="heading4">
+        <mark>Invoice Manager.</mark>
+    </h1>
+<div class="invoiceContainer">
+<div class="invoiceDetails">
+    <h1 class="commonText commonHeadings" ><mark>Invoice Details.</mark></h1><br>
+    <label for="oIdInVoice" class="commonText"><mark>OrderID.</mark></label>
+    <input class=commonText type="text" id="oIdInVoice" placeholder="0001"><br><br>
+    <label for="date" class="commonText"><mark>Date.</mark></label>
+    <input class="commonText adjustPosition" type="date" id="date" placeholder="0001"><br><br>
+    <label for="cidsInvoice" class="commonText"><mark>Customer ID's.</mark></label>
+    <select  id="cidsInvoice" class="commonText">
+        <option value=
+        >Se1ect Customer
+            ID's.</option>
+        <option value="C001">C001</option>
+        <option value="C002">C002</option>
+    </select><br><br>
+    <label for="nameInvoice" class="commonText"><mark>Name.</mark></label>
+    <input class="commonText adjustPosition" type="text" id="nameInvoice" placeholder="Damian."><br><br>
+    <label for="addressInvoice" class="commonText"><mark>Address.</mark></label>
+    <input class=commonText type="text" id="addressInvoice" placeholder="Moratuwa."><br><br>
+</div>
+    <div class="itemDetails">
+        <h1 class="commonText commonHeadings" ><mark>Item Details.</mark></h1><br>
+        <label for="iIdsInvoice" class="commonText"><mark>Item ID's.</mark></label>
+        <select  id="iIdsInvoice" class="commonText">
+            <option value=
+            >Se1ect Item
+                ID's.</option>
+            <option value="I001">I001</option>
+            <option value="I002">I002</option>
+        </select><br><br>
+        <label for="iNamesInvoice" class="commonText"><mark>Item Names.</mark></label>
+        <select  id="iNamesInvoice" class="commonText">
+            <option value=
+            >Se1ect Item
+                Names.</option>
+            <option value="xyz">Chocolate Puff.</option>
+            <option value="ABC">Chocolate Biscuits.</option>
+        </select><br><br>
+        <label for="priceInVoice" class="commonText"><mark>Price.</mark></label>
+        <input class="commonText adjustPosition"  type="text" id="priceInVoice" placeholder="Rs.1000/="><br><br>
+        <label for="qtyOnHandInVoice" class="commonText"><mark>QTY On Hand.</mark></label>
+        <input class=commonText type="text" id="qtyOnHandInVoice" placeholder="100"><br><br>
+        <label for="orderQtyInvoice" class="commonText"><mark>Order QTY.</mark></label>
+        <input class="commonText adjustPosition" type="text" id="orderQtyInVoice" placeholder="10"><br><br>
+        <button class="btn btn-outline-success" type="submit" id="b1">Add Item.</button>
 
+
+    </div>
+    <div class="totalDetails">
+        <label for="totalInVoice" class="commonText"><mark>Total.</mark></label>
+        <input class="commonText adjustPosition"  type="text" id="totalInVoice" placeholder="Rs.1000/="><br><br>
+        <label for="subTotalInVoice" class="commonText"><mark>Sub Total.</mark></label>
+        <input class="commonText adjustPosition"  type="text" id="subtotalInVoice" placeholder="Rs.900/="><br><br>
+        <label for="cashInVoice" class="commonText"><mark>Cash.</mark></label>
+        <input class="commonText adjustPosition"  type="text" id="cashInVoice" placeholder="Rs.1000/="><br><br>
+        <label for="discountInVoice" class="commonText"><mark>Discount.</mark></label>
+        <input class="commonText adjustPosition"  type="text" id="discountInVoice" placeholder="10%"><br><br>
+        <button class="btn btn-outline-success" type="submit" id="b2">Purchase.</button>
+
+    </div>
+
+
+
+
+</div>
 
 </main>
 
