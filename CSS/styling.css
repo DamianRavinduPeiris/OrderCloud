@@ -38,7 +38,7 @@ img{
 #heading2{
     text-align: center;
     position: relative;
-    top: 400px;
+    top: 100px;
 
 }
 #heading3{
@@ -61,12 +61,12 @@ img{
 .buttonContainer{
     display: flex;
     position: relative;
-    top: 200px;
+    top: 150px;
     justify-content: space-between;
 }
 #customerTable{
     position: relative;
-    top: 300px;
+    top: 200px;
 }
 .buttonContainer2{
     display: flex;
