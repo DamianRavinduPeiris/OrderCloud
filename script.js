@@ -251,5 +251,10 @@ $("#deleteCustomer").on("click",function (){
     addToTable();
     swal("Done!", "🚨 Customer deleted successfully!", "success");
 
-
 });
+$("#getAllCustomersButton").on("click", () => {
+    swal("DONE!", "🚀 Successfully fetched the data!", "success").then(() => {
+        window.location.reload();
+    });
+});
+
