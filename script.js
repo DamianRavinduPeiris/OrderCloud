@@ -136,3 +136,117 @@ $("#manageInvoices").on("click", function () {
     showInvoices();
 
 });
+
+/*Functionalities.*/
+
+const data = "CustomerData"; //This is the key value for local storage.
+let custArray = [];
+const clearTable = () => {
+    $("#customerTable tbody").empty();
+}
+
+function addToTable() {
+    clearTable();
+    if (JSON.parse(localStorage.getItem(data))) {
+        custArray = JSON.parse(localStorage.getItem(data));
+        for (let i = 0; i < custArray.length; i++) {
+            $("#customerTable tbody").append("<tr><td>" + custArray[i].customer_id + "</td><td>" + custArray[i].customer_name + "</td><td>" + custArray[i].customer_address + "</td><td>" + "Rs." + custArray[i].customer_salary + "</td></tr>");
+        }
+    } else {
+        alert("No data to display!")
+    }
+
+}
+
+$("#customerAddButton").on("click", function () {
+    var customer = {
+        customer_id: $("#cId").val(),
+        customer_name: $("#cName").val(),
+        customer_address: $("#cAddress").val(),
+        customer_salary: $("#cSalary").val()
+    }
+
+    custArray.push(customer);
+    updateLocalStorage(custArray);
+    addToTable();
+});
+
+addToTable(); //Initial loading of the table.
+
+//Clears the local storage when the user presses the "ctrl+d".👇
+$(document).on('keydown', function (event) {
+    if (event.ctrlKey && event.which === 68) {
+        localStorage.clear();
+        alert("Local storage cleared!");
+        window.location.reload();
+    }
+
+});
+
+$("#customerTable tbody tr").on("click", function () {
+    //Collecting the data to an object.
+    var customerData = {
+        customer_id: $(this).find("td:eq(0)").text(),
+        customer_name: $(this).find("td:eq(1)").text(),
+        customer_address: $(this).find("td:eq(2)").text(),
+        customer_salary: $(this).find("td:eq(3)").text()
+    }
+
+    //Triggering the update button and setting the values.
+    $("#updateCustomerButton").trigger("click");
+    //Setting the data to the input fields.
+    $("#uCId").val(customerData.customer_id);
+    $("#uCName").val(customerData.customer_name);
+    $("#uCAddress").val(customerData.customer_address);
+    $("#uCSalary").val(customerData.customer_salary);
+
+    //Removing the table row.
+    $(this).remove();
+
+
+});
+
+//Finding the array element number of the customer object.
+const findId = (value) => {
+    for (let i = 0; i < custArray.length; i++) {
+        if (custArray[i].customer_id === $(value).val()) {
+            return i;
+        }
+    }
+}
+$("#updateCustomerButton").on("click",function (){
+    updateCustomer();
+
+});
+$("#cUpdateButton").on("click", function() {
+    updateCustomer();
+
+});
+function updateCustomer(){
+    var updatedCustomerData = {
+        customer_id: $("#uCId").val(),
+        customer_name: $("#uCName").val(),
+        customer_address: $("#uCAddress").val(),
+        customer_salary: $("#uCSalary").val()
+    }
+    //Updating the customer array.
+    custArray[findId("#uCId")] = updatedCustomerData;
+    //Updating the local storage.
+    updateLocalStorage(custArray);
+    //Updating the local storage.
+    addToTable();
+
+}
+function updateLocalStorage(customerArray){
+    localStorage.setItem(data, JSON.stringify(customerArray));//Saving the customer array to the local storage.
+}
+$("#deleteCustomer").on("click",function (){
+    //Deleting the customer from the array.
+   custArray.splice(findId("#dCId"),1);
+   //Updating the local storage.
+    updateLocalStorage(custArray);
+    //Updating the table.
+    addToTable();
+
+
+});
