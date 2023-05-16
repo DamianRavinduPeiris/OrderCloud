@@ -219,8 +219,8 @@
         <nav class="navbar bg-body-tertiary" data-aos="zoom-in-up" id="customerSearchBar">
             <div class="container-fluid">
                 <form class="d-flex" role="search">
-                    <input aria-label="Search" class="form-control me-2" placeholder="Type something..." type="search">
-                    <button class="btn btn-outline-success" type="submit">Search.</button>
+                    <input aria-label="Search" class="form-control me-2" placeholder="Type something..." type="search" id="cidField">
+                    <button class="btn btn-outline-success"  id="csButton" type="submit">Search.</button>
                 </form>
             </div>
         </nav>
@@ -732,6 +732,28 @@
 </div>
 
 </main>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="showInfo">
+    Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 commonText" id="exampleModalLabel">Customer Details.</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body commonText" id="infoBody">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary commonText" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!--BootStrap 5 JS.-->

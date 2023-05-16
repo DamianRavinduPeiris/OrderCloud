@@ -1,6 +1,7 @@
 clearAll();
 showCustomers();
 
+
 function clearAll() {
     /*Hid the heading Item Manager.*/
     $("#heading2").css("display", "none");
@@ -215,10 +216,7 @@ const findId = (value) => {
         }
     }
 }
-$("#updateCustomerButton").on("click",function (){
-    updateCustomer();
 
-});
 $("#cUpdateButton").on("click", function() {
     updateCustomer();
 
@@ -257,4 +255,18 @@ $("#getAllCustomersButton").on("click", () => {
         window.location.reload();
     });
 });
+$("#csButton").on("click",function (){
+    $("#infoBody").empty();//Clearing the info modal.
+    event.preventDefault();//Prevents refreshing.
+    $("#exampleModal").modal("show"); //Triggering the bootstrap modal.
+    //Finding the customer object from the custArray and appending to the #infoBody div.
+    $("#infoBody").append($("<h3></h3>").text("CUSTOMER ID : "+custArray[findId("#cidField")].customer_id));
+    $("#infoBody").append($("<h3></h3>").text("CUSTOMER NAME : "+custArray[findId("#cidField")].customer_name));
+    $("#infoBody").append($("<h3></h3>").text("CUSTOMER ADDRESS : "+custArray[findId("#cidField")].customer_address));
+    $("#infoBody").append($("<h3></h3>").text("CUSTOMER SALARY : "+custArray[findId("#cidField")].customer_salary));
 
+});
+
+
+/*Hiding the info modal.*/
+$("#showInfo").css("display", "none");
