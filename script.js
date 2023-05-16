@@ -153,7 +153,7 @@ function addToTable() {
             $("#customerTable tbody").append("<tr><td>" + custArray[i].customer_id + "</td><td>" + custArray[i].customer_name + "</td><td>" + custArray[i].customer_address + "</td><td>" + "Rs." + custArray[i].customer_salary + "</td></tr>");
         }
     } else {
-        alert("No data to display!")
+        swal("OOPS!", "No data to display!", "warning");
     }
 
 }
@@ -169,6 +169,7 @@ $("#customerAddButton").on("click", function () {
     custArray.push(customer);
     updateLocalStorage(custArray);
     addToTable();
+    swal("DONE!", "Customer added successfully!💡", "success");
 });
 
 addToTable(); //Initial loading of the table.
@@ -235,6 +236,7 @@ function updateCustomer(){
     updateLocalStorage(custArray);
     //Updating the local storage.
     addToTable();
+    swal("DONE!", "Customer updated successfully!💡", "success");
 
 }
 function updateLocalStorage(customerArray){
@@ -247,6 +249,7 @@ $("#deleteCustomer").on("click",function (){
     updateLocalStorage(custArray);
     //Updating the table.
     addToTable();
+    swal("Done!", "🚨 Customer deleted successfully!", "success");
 
 
 });
