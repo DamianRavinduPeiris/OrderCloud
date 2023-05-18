@@ -89,6 +89,7 @@ function showItems() {
     $(".buttonContainer2").css("top", "150px");
     $("#itemTable").css("position", "relative");
     $("#itemTable").css("top", "200px");
+    addToItemTable();//Initial loading of the table.
 
 }
 
@@ -139,7 +140,7 @@ $("#manageInvoices").on("click", function () {
 });
 
 /*Functionalities.*/
-
+/*Customer management - Start.*/
 const data = "CustomerData"; //This is the key value for local storage.
 let custArray = [];
 const clearTable = () => {
@@ -179,7 +180,7 @@ addToTable(); //Initial loading of the table.
 $(document).on('keydown', function (event) {
     if (event.ctrlKey && event.which === 68) {
         localStorage.clear();
-        alert("Local storage cleared!");
+        swal("DONE!", "Local storage cleared successfully!💡", "success");
         window.location.reload();
     }
 
@@ -211,17 +212,19 @@ $("#customerTable tbody tr").on("click", function () {
 //Finding the array element number of the customer object.
 const findId = (value) => {
     for (let i = 0; i < custArray.length; i++) {
-        if (custArray[i].customer_id === $(value).val()) {
+        if (custArray[i].customer_id == $(value).val()) {
             return i;
         }
     }
+    return -1;
 }
 
-$("#cUpdateButton").on("click", function() {
+$("#cUpdateButton").on("click", function () {
     updateCustomer();
 
 });
-function updateCustomer(){
+
+function updateCustomer() {
     var updatedCustomerData = {
         customer_id: $("#uCId").val(),
         customer_name: $("#uCName").val(),
@@ -229,44 +232,205 @@ function updateCustomer(){
         customer_salary: $("#uCSalary").val()
     }
     //Updating the customer array.
-    custArray[findId("#uCId")] = updatedCustomerData;
-    //Updating the local storage.
-    updateLocalStorage(custArray);
-    //Updating the local storage.
-    addToTable();
-    swal("DONE!", "Customer updated successfully!💡", "success");
+    let elementNo = findId("#uCId");
+    if (elementNo != -1) {
+        custArray[elementNo] = updatedCustomerData;
+        //Updating the local storage.
+        updateLocalStorage(custArray);
+        //Updating the local storage.
+        addToTable();
+        swal("DONE!", "Customer updated successfully!💡", "success");
+    } else {
+        invalidData();
+    }
 
 }
-function updateLocalStorage(customerArray){
+
+function updateLocalStorage(customerArray) {
     localStorage.setItem(data, JSON.stringify(customerArray));//Saving the customer array to the local storage.
 }
-$("#deleteCustomer").on("click",function (){
+
+$("#deleteCustomer").on("click", function () {
     //Deleting the customer from the array.
-   custArray.splice(findId("#dCId"),1);
-   //Updating the local storage.
-    updateLocalStorage(custArray);
-    //Updating the table.
-    addToTable();
-    swal("Done!", "🚨 Customer deleted successfully!", "success");
+    let elementNo = findId("#dCId");
+    if (elementNo != -1) {
+        custArray.splice(findId("#dCId"), 1);
+        //Updating the local storage.
+        updateLocalStorage(custArray);
+        //Updating the table.
+        addToTable();
+        swal("Done!", "🚨 Customer deleted successfully!", "success");
+
+    } else {
+        invalidData();
+    }
+
 
 });
-$("#getAllCustomersButton").on("click", () => {
+
+function fetchData() {
     swal("DONE!", "🚀 Successfully fetched the data!", "success").then(() => {
         window.location.reload();
     });
+
+
+}
+
+$("#getAllCustomersButton").on("click", () => {
+    fetchData();
+
 });
-$("#csButton").on("click",function (){
+$("#csButton").on("click", function () {
     $("#infoBody").empty();//Clearing the info modal.
     event.preventDefault();//Prevents refreshing.
-    $("#exampleModal").modal("show"); //Triggering the bootstrap modal.
     //Finding the customer object from the custArray and appending to the #infoBody div.
-    $("#infoBody").append($("<h3></h3>").text("CUSTOMER ID : "+custArray[findId("#cidField")].customer_id));
-    $("#infoBody").append($("<h3></h3>").text("CUSTOMER NAME : "+custArray[findId("#cidField")].customer_name));
-    $("#infoBody").append($("<h3></h3>").text("CUSTOMER ADDRESS : "+custArray[findId("#cidField")].customer_address));
-    $("#infoBody").append($("<h3></h3>").text("CUSTOMER SALARY : "+custArray[findId("#cidField")].customer_salary));
+    let elementNo = findId("#cidField");
+    if (elementNo != -1) {
+        $("#exampleModal").modal("show"); //Triggering the bootstrap modal.
+        $("#infoBody").append($("<h3></h3>").text("CUSTOMER ID : " + custArray[findId("#cidField")].customer_id));
+        $("#infoBody").append($("<h3></h3>").text("CUSTOMER NAME : " + custArray[findId("#cidField")].customer_name));
+        $("#infoBody").append($("<h3></h3>").text("CUSTOMER ADDRESS : " + custArray[findId("#cidField")].customer_address));
+        $("#infoBody").append($("<h3></h3>").text("CUSTOMER SALARY : " + custArray[findId("#cidField")].customer_salary));
+    } else {
+        invalidData();
+    }
+
 
 });
 
 
 /*Hiding the info modal.*/
 $("#showInfo").css("display", "none");
+
+/*Customer Management -  End.*/
+/*Item Management End.*/
+var itemArray = [];
+const itemData = "ItemData";
+
+function clearItemTable() {
+    $("#itemTable tbody").empty();
+}
+
+function addToItemTable() {
+    clearItemTable();
+    if (localStorage.getItem(itemData)) {
+        itemArray = JSON.parse(localStorage.getItem(itemData));
+        for (let i = 0; i < itemArray.length; i++) {
+            $("#itemTable tbody").append("<tr><td>" + itemArray[i].item_Id + "</td><td>" + itemArray[i].item_Name + "</td><td>" + itemArray[i].item_qty + "</td><td>" + itemArray[i].item_price + "</td></tr>");
+        }
+    }
+}
+
+function updateItemLocalStorage(itemArray) {
+    localStorage.setItem(itemData, JSON.stringify(itemArray));//Saving the customer array to the local storage.
+
+}
+
+$("#itemAddButton").on("click", function () {
+    var itemData = {
+        item_Id: $("#iId").val(),
+        item_Name: $("#iName").val(),
+        item_price: $("#iPrice").val(),
+        item_qty: $("#iQty").val()
+    }
+    itemArray.push(itemData);//Adding the item to the array.
+    updateItemLocalStorage(itemArray);//Updating the local storage.
+    addToItemTable();//Updating the table.
+    swal("DONE!", "Item added successfully!💡", "success");
+
+
+});
+$("#itemTable").on("click","tbody tr",function(){
+    var itemData = {
+        item_id: $(this).find("td:eq(0)").text(),
+        item_name: $(this).find("td:eq(1)").text(),
+        item_price: $(this).find("td:eq(3)").text(),
+        item_qty: $(this).find("td:eq(2)").text()
+
+    };
+    $("#updateItemButton").trigger("click");
+    $("#uIid").val(itemData.item_id);
+    $("#uIname").val(itemData.item_name);
+    $("#uIprice").val(itemData.item_price);
+    $("#uIqty").val(itemData.item_qty);
+    $(this).remove();//Removing the table row.
+
+
+});
+
+
+function findItemElementNo(value) {
+    for (let i = 0; i < itemArray.length; i++) {
+        if (itemArray[i].item_Id === $(value).val()) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+$("#updatedItemsButton").on("click", function () {
+    var updatedItemData = {
+        item_Id: $("#uIid").val(),
+        item_Name: $("#uIname").val(),
+        item_price: $("#uIprice").val(),
+        item_qty: $("#uIqty").val()
+    }
+    //Updating the item array.
+    let elementNo = findItemElementNo("#uIid")
+    if (elementNo != -1) {
+        itemArray[elementNo] = updatedItemData;
+        //Updating the local storage.
+        updateItemLocalStorage(itemArray);
+        //Updating the table.
+        addToItemTable();
+        swal("DONE!", "Item updated successfully!💡", "success");
+
+    } else {
+        invalidData();
+    }
+
+
+});
+
+$("#deleteItemButton").on("click", () => {
+    //Deleting the customer from the array.
+    let elementNo = findItemElementNo("#iId2");
+    if (elementNo != -1) {
+        itemArray.splice(findItemElementNo("#iId2"), 1);
+        //Updating the local storage.
+        updateItemLocalStorage(itemArray);
+        //Updating the table.
+        addToItemTable();
+        swal("Done!", "🚨 Item deleted successfully!", "success");
+
+    } else {
+        invalidData();
+    }
+
+
+});
+
+$("#getAllItemsButton").on("click", () => {
+    fetchData();
+});
+
+$("#itemSearchButton").on("click", function () {
+    $("#infoBody").empty();//Clearing the info modal.
+    //Finding the customer object from the custArray and appending to the #infoBody div.
+    let elementNo = findItemElementNo("#itemIdField");
+    if (elementNo != -1) {
+        $("#exampleModal").modal("show"); //Triggering the bootstrap modal.
+        $("#infoBody").append($("<h3></h3>").text("ITEM ID : " + itemArray[elementNo].item_Id));
+        $("#infoBody").append($("<h3></h3>").text("ITEM NAME : " + itemArray[elementNo].item_Name));
+        $("#infoBody").append($("<h3></h3>").text("ITEM PRICE  : " + itemArray[elementNo].item_price));
+        $("#infoBody").append($("<h3></h3>").text("ITEM QTY : " + itemArray[elementNo].item_qty));
+    } else {
+        invalidData();
+    }
+
+
+});
+
+function invalidData() {
+    swal("OOPS!", "Enter a valid ID.🚨", "error");
+}

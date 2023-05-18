@@ -239,6 +239,7 @@
         </tr>
         </thead>
         <tbody>
+        </tbody>
     </table>
     <!--Table for Customers - End.-->
     <!--Customer Manager - End.-->
@@ -256,7 +257,7 @@
         </button>
         <!-- Button trigger modal for adding an item - End.-->
 
-        <!-- Add Customer Modal - Start. -->
+        <!-- Add Item Modal - Start. -->
         <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="addItemModal"
              tabindex="-1">
             <div class="modal-dialog">
@@ -285,7 +286,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-primary" type="button">Add.</button>
+                        <button class="btn btn-primary" type="button" id="itemAddButton">Add.</button>
                         <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close.</button>
                     </div>
                 </div>
@@ -306,7 +307,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5 commonText">Enter details of the Item!</h1>
-                        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button" id="updateItems"></button>
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
@@ -327,7 +328,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-primary" type="button">Update.</button>
+                        <button class="btn btn-primary" type="button" id="updatedItemsButton">Update.</button>
                         <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close.</button>
 
                     </div>
@@ -337,7 +338,7 @@
         <!-- Update Item Modal - End. -->
         <!-- Button trigger modal for deleting an item - Start. -->
         <button class="btn btn-danger " data-aos="zoom-in-up" data-bs-target="#deleteItemModal" data-bs-toggle="modal"
-                id="deleteItemButton" type="button">
+               type="button">
             Delete an Item.
         </button>
         <!-- Button trigger modal for deleting an item - End. -->
@@ -357,7 +358,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-danger" type="button">Delete.</button>
+                        <button class="btn btn-danger" type="button" id="deleteItemButton">Delete.</button>
                         <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close.</button>
                     </div>
                 </div>
@@ -373,8 +374,8 @@
         <nav class="navbar bg-body-tertiary" data-aos="zoom-in-up" id="itemsSearchBar">
             <div class="container-fluid">
                 <form class="d-flex" role="search">
-                    <input aria-label="Search" class="form-control me-2" placeholder="Type something..." type="search">
-                    <button class="btn btn-outline-success" type="submit">Search.</button>
+                    <input aria-label="Search" class="form-control me-2" placeholder="Type something..." type="search" id="itemIdField">
+                    <button class="btn btn-outline-success" type="submit" id="itemSearchButton">Search.</button>
                 </form>
             </div>
         </nav>
@@ -392,24 +393,6 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>IOO1</td>
-            <td>Chocolate Puff.</td>
-            <td>RS.300.00/=</td>
-            <td>1000</td>
-        </tr>
-        <tr>
-            <td>IOO2</td>
-            <td>Chocolate Chip Cookies.</td>
-            <td>RS.500.00/=</td>
-            <td>1000</td>
-        </tr>
-        <tr>
-            <td>IOO3</td>
-            <td>Chocolate Marie.</td>
-            <td>RS.200.00/=</td>
-            <td>1000</td>
-        </tr>
         </tbody>
     </table>
 
