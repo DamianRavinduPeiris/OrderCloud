@@ -27,7 +27,8 @@
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap" rel="stylesheet">
     <!--JQuery.-->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script crossorigin="anonymous"
+            integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <nav class="navbar nav-underline navbar-expand-lg bg-dark animate__animated  animate__zoomInUp">
     <div class="container-fluid">
@@ -40,20 +41,24 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a aria-current="page" class="nav-link active navBarText fs-5 text-white" href="#" id="homeButton">🏠 Home. </a>
+                    <a aria-current="page" class="nav-link active navBarText fs-5 text-white" href="#" id="homeButton">🏠
+                        Home. </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link navBarText fs-5 text-white" data-aos="zoom-in" href="#heading1" id="manageCustomers">🧑 Manage
+                    <a class="nav-link navBarText fs-5 text-white" data-aos="zoom-in" href="#heading1"
+                       id="manageCustomers">🧑 Manage
                         Customers.</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link navBarText fs-5 text-white" href="#heading2" id="manageItems">🍉 Manage Items.</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link navBarText fs-5 text-white" href="#heading3" id="manageOrders">🛒 Orders Manager.</a>
+                    <a class="nav-link navBarText fs-5 text-white" href="#heading3" id="manageOrders">🛒 Orders
+                        Manager.</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link navBarText fs-5 text-white" href="#heading4" id="manageInvoices">💸 Invoice Manager.</a>
+                    <a class="nav-link navBarText fs-5 text-white" href="#heading4" id="manageInvoices">💸 Invoice
+                        Manager.</a>
                 </li>
                 <li class="nav-item dropdown">
 
@@ -128,7 +133,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-primary" type="button" id="customerAddButton">Add.</button>
+                        <button class="btn btn-primary" id="customerAddButton" type="button">Add.</button>
                         <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close.</button>
                     </div>
                 </div>
@@ -173,7 +178,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-primary" type="button" id="cUpdateButton">Update.</button>
+                        <button class="btn btn-primary" id="cUpdateButton" type="button">Update.</button>
                         <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close.</button>
 
                     </div>
@@ -203,7 +208,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-danger" type="button" id="deleteCustomer">Delete.</button>
+                        <button class="btn btn-danger" id="deleteCustomer" type="button">Delete.</button>
                         <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close.</button>
                     </div>
                 </div>
@@ -219,8 +224,9 @@
         <nav class="navbar bg-body-tertiary" data-aos="zoom-in-up" id="customerSearchBar">
             <div class="container-fluid">
                 <form class="d-flex" role="search">
-                    <input aria-label="Search" class="form-control me-2" placeholder="Type something..." type="search" id="cidField">
-                    <button class="btn btn-outline-success"  id="csButton" type="submit">Search.</button>
+                    <input aria-label="Search" class="form-control me-2" id="cidField" placeholder="Type something..."
+                           type="search">
+                    <button class="btn btn-outline-success" id="csButton" type="submit">Search.</button>
                 </form>
             </div>
         </nav>
@@ -286,7 +292,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-primary" type="button" id="itemAddButton">Add.</button>
+                        <button class="btn btn-primary" id="itemAddButton" type="button">Add.</button>
                         <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close.</button>
                     </div>
                 </div>
@@ -307,7 +313,8 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5 commonText">Enter details of the Item!</h1>
-                        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button" id="updateItems"></button>
+                        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" id="updateItems"
+                                type="button"></button>
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
@@ -328,7 +335,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-primary" type="button" id="updatedItemsButton">Update.</button>
+                        <button class="btn btn-primary" id="updatedItemsButton" type="button">Update.</button>
                         <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close.</button>
 
                     </div>
@@ -338,7 +345,7 @@
         <!-- Update Item Modal - End. -->
         <!-- Button trigger modal for deleting an item - Start. -->
         <button class="btn btn-danger " data-aos="zoom-in-up" data-bs-target="#deleteItemModal" data-bs-toggle="modal"
-               type="button">
+                type="button">
             Delete an Item.
         </button>
         <!-- Button trigger modal for deleting an item - End. -->
@@ -358,7 +365,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-danger" type="button" id="deleteItemButton">Delete.</button>
+                        <button class="btn btn-danger" id="deleteItemButton" type="button">Delete.</button>
                         <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close.</button>
                     </div>
                 </div>
@@ -374,8 +381,9 @@
         <nav class="navbar bg-body-tertiary" data-aos="zoom-in-up" id="itemsSearchBar">
             <div class="container-fluid">
                 <form class="d-flex" role="search">
-                    <input aria-label="Search" class="form-control me-2" placeholder="Type something..." type="search" id="itemIdField">
-                    <button class="btn btn-outline-success" type="submit" id="itemSearchButton">Search.</button>
+                    <input aria-label="Search" class="form-control me-2" id="itemIdField" placeholder="Type something..."
+                           type="search">
+                    <button class="btn btn-outline-success" id="itemSearchButton" type="submit">Search.</button>
                 </form>
             </div>
         </nav>
@@ -405,7 +413,7 @@
     <div class="buttonContainer3">
         <!-- Button trigger modal for adding an Order- Start.-->
         <button class="btn btn-primary " data-aos="zoom-in-up" data-bs-target="#addOrderModal" data-bs-toggle="modal"
-                id="addOrderButton" type="button">
+                id="aoButton" type="button">
             Add an Order.
         </button>
         <!-- Button trigger modal for adding an Order - End.-->
@@ -426,37 +434,34 @@
                         </div>
                         <div class="dropdown">
                             <button aria-expanded="false" class="commonText btn btn-secondary dropdown-toggle"
-                                    data-bs-toggle="dropdown" type="button">
+                                    data-bs-toggle="dropdown"
+                                    id="cIdButton" type="button">
                                 Customer ID's.
                             </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">C001.</a></li>
-                                <li><a class="dropdown-item" href="#">C002.</a></li>
-                                <li><a class="dropdown-item" href="#">C003.</a></li>
+                            <ul class="dropdown-menu" id="cIdDropdown">
+
                             </ul>
                         </div>
                         <br>
                         <div class="dropdown">
                             <button aria-expanded="false" class="commonText btn btn-secondary dropdown-toggle"
-                                    data-bs-toggle="dropdown" type="button">
+                                    data-bs-toggle="dropdown"
+                                    id="iIdButton" type="button">
                                 Item ID's.
                             </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">I001.</a></li>
-                                <li><a class="dropdown-item" href="#">I002.</a></li>
-                                <li><a class="dropdown-item" href="#">I003.</a></li>
+                            <ul class="dropdown-menu" id="iIdDropDown">
+
                             </ul>
                         </div>
                         <br>
                         <div class="dropdown">
                             <button aria-expanded="false" class="commonText btn btn-secondary dropdown-toggle"
-                                    data-bs-toggle="dropdown" type="button">
+                                    data-bs-toggle="dropdown"
+                                    id="iNameButton" type="button">
                                 Item Names.
                             </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Item 1.</a></li>
-                                <li><a class="dropdown-item" href="#">Item 2.</a></li>
-                                <li><a class="dropdown-item" href="#">Item 3.</a></li>
+                            <ul class="dropdown-menu" id="iNameDropDown">
+
                             </ul>
                         </div>
                         <div class="mb-3">
@@ -470,7 +475,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-primary" type="button">Add.</button>
+                        <button class="btn btn-primary" id="addOrderButton" type="button">Add.</button>
                         <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close.</button>
                     </div>
                 </div>
@@ -504,9 +509,7 @@
                                 Customer ID's.
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">C001.</a></li>
-                                <li><a class="dropdown-item" href="#">C002.</a></li>
-                                <li><a class="dropdown-item" href="#">C003.</a></li>
+
                             </ul>
                         </div>
                         <br>
@@ -516,9 +519,7 @@
                                 Item ID's.
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">I001.</a></li>
-                                <li><a class="dropdown-item" href="#">I002.</a></li>
-                                <li><a class="dropdown-item" href="#">I003.</a></li>
+
                             </ul>
                         </div>
                         <br>
@@ -528,9 +529,7 @@
                                 Item Names.
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Item 1.</a></li>
-                                <li><a class="dropdown-item" href="#">Item 2.</a></li>
-                                <li><a class="dropdown-item" href="#">Item 3.</a></li>
+
                             </ul>
                         </div>
                         <div class="mb-3">
@@ -612,33 +611,6 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>0OO1</td>
-            <td>C001.</td>
-            <td>I001</td>
-            <td>Chocolate Puff.</td>
-            <th scope="col">300.</th>
-            <th scope="col">10.</th>
-            <th scope="col">3000.</th>
-        </tr>
-        <tr>
-            <td>0OO2</td>
-            <td>C002.</td>
-            <td>I002</td>
-            <td>Chocolate Chip Cookies.</td>
-            <th scope="col">300.</th>
-            <th scope="col">10.</th>
-            <th scope="col">3000.</th>
-        </tr>
-        <tr>
-            <td>0OO3</td>
-            <td>C003.</td>
-            <td>I003</td>
-            <td>Chocolate Marie.</td>
-            <th scope="col">300.</th>
-            <th scope="col">10.</th>
-            <th scope="col">3000.</th>
-        </tr>
         </tbody>
     </table>
 
@@ -648,91 +620,126 @@
     <h1 class="commonText" data-aos="zoom-in" id="heading4">
         <mark>Invoice Manager.</mark>
     </h1>
-<div class="invoiceContainer" data-aos="zoom-in">
-<div class="invoiceDetails">
-    <h1 class="commonText commonHeadings" ><mark>Invoice Details.</mark></h1><br>
-    <label for="oIdInVoice" class="commonText"><mark>OrderID.</mark></label>
-    <input class=commonText type="text" id="oIdInVoice" placeholder="0001"><br><br>
-    <label for="date" class="commonText"><mark>Date.</mark></label>
-    <input class="commonText adjustPosition" type="date" id="date" placeholder="0001"><br><br>
-    <label for="cidsInvoice" class="commonText"><mark>Customer ID's.</mark></label>
-    <select  id="cidsInvoice" class="commonText">
-        <option value=
-        >Se1ect Customer
-            ID's.</option>
-        <option value="C001">C001</option>
-        <option value="C002">C002</option>
-    </select><br><br>
-    <label for="nameInvoice" class="commonText"><mark>Name.</mark></label>
-    <input class="commonText adjustPosition" type="text" id="nameInvoice" placeholder="Damian."><br><br>
-    <label for="addressInvoice" class="commonText"><mark>Address.</mark></label>
-    <input class=commonText type="text" id="addressInvoice" placeholder="Moratuwa."><br><br>
-</div>
-    <div class="itemDetails">
-        <h1 class="commonText commonHeadings" ><mark>Item Details.</mark></h1><br>
-        <label for="iIdsInvoice" class="commonText"><mark>Item ID's.</mark></label>
-        <select  id="iIdsInvoice" class="commonText">
-            <option value=
-            >Se1ect Item
-                ID's.</option>
-            <option value="I001">I001</option>
-            <option value="I002">I002</option>
-        </select><br><br>
-        <label for="iNamesInvoice" class="commonText"><mark>Item Names.</mark></label>
-        <select  id="iNamesInvoice" class="commonText">
-            <option value=
-            >Se1ect Item
-                Names.</option>
-            <option value="xyz">Chocolate Puff.</option>
-            <option value="ABC">Chocolate Biscuits.</option>
-        </select><br><br>
-        <label for="priceInVoice" class="commonText"><mark>Price.</mark></label>
-        <input class="commonText adjustPosition"  type="text" id="priceInVoice" placeholder="Rs.1000/="><br><br>
-        <label for="qtyOnHandInVoice" class="commonText"><mark>QTY On Hand.</mark></label>
-        <input class=commonText type="text" id="qtyOnHandInVoice" placeholder="100"><br><br>
-        <label for="orderQtyInvoice" class="commonText"><mark>Order QTY.</mark></label>
-        <input class="commonText adjustPosition" type="text" id="orderQtyInVoice" placeholder="10"><br><br>
-        <button class="btn btn-outline-success" type="submit" id="b1">Add Item.</button>
+    <div class="invoiceContainer" data-aos="zoom-in">
+        <div class="invoiceDetails">
+            <h1 class="commonText commonHeadings">
+                <mark>Invoice Details.</mark>
+            </h1>
+            <br>
+            <label class="commonText" for="oIdInVoice">
+                <mark>OrderID.</mark>
+            </label>
+            <input class=commonText id="oIdInVoice" placeholder="0001" type="text"><br><br>
+            <label class="commonText" for="date">
+                <mark>Date.</mark>
+            </label>
+            <input class="commonText adjustPosition" id="date" placeholder="0001" type="date"><br><br>
+            <label class="commonText" for="cidsInvoice">
+                <mark>Customer ID's.</mark>
+            </label>
+            <select class="commonText" id="cidsInvoice">
+                <option value=
+                >Se1ect Customer
+                    ID's.
+                </option>
+                <option value="C001">C001</option>
+                <option value="C002">C002</option>
+            </select><br><br>
+            <label class="commonText" for="nameInvoice">
+                <mark>Name.</mark>
+            </label>
+            <input class="commonText adjustPosition" id="nameInvoice" placeholder="Damian." type="text"><br><br>
+            <label class="commonText" for="addressInvoice">
+                <mark>Address.</mark>
+            </label>
+            <input class=commonText id="addressInvoice" placeholder="Moratuwa." type="text"><br><br>
+        </div>
+        <div class="itemDetails">
+            <h1 class="commonText commonHeadings">
+                <mark>Item Details.</mark>
+            </h1>
+            <br>
+            <label class="commonText" for="iIdsInvoice">
+                <mark>Item ID's.</mark>
+            </label>
+            <select class="commonText" id="iIdsInvoice">
+                <option value=
+                >Se1ect Item
+                    ID's.
+                </option>
+                <option value="I001">I001</option>
+                <option value="I002">I002</option>
+            </select><br><br>
+            <label class="commonText" for="iNamesInvoice">
+                <mark>Item Names.</mark>
+            </label>
+            <select class="commonText" id="iNamesInvoice">
+                <option value=
+                >Se1ect Item
+                    Names.
+                </option>
+                <option value="xyz">Chocolate Puff.</option>
+                <option value="ABC">Chocolate Biscuits.</option>
+            </select><br><br>
+            <label class="commonText" for="priceInVoice">
+                <mark>Price.</mark>
+            </label>
+            <input class="commonText adjustPosition" id="priceInVoice" placeholder="Rs.1000/=" type="text"><br><br>
+            <label class="commonText" for="qtyOnHandInVoice">
+                <mark>QTY On Hand.</mark>
+            </label>
+            <input class=commonText id="qtyOnHandInVoice" placeholder="100" type="text"><br><br>
+            <label class="commonText" for="orderQtyInvoice">
+                <mark>Order QTY.</mark>
+            </label>
+            <input class="commonText adjustPosition" id="orderQtyInVoice" placeholder="10" type="text"><br><br>
+            <button class="btn btn-outline-success" id="b1" type="submit">Add Item.</button>
+
+
+        </div>
+        <div class="totalDetails">
+            <label class="commonText" for="totalInVoice">
+                <mark>Total.</mark>
+            </label>
+            <input class="commonText adjustPosition" id="totalInVoice" placeholder="Rs.1000/=" type="text"><br><br>
+            <label class="commonText" for="subTotalInVoice">
+                <mark>Sub Total.</mark>
+            </label>
+            <input class="commonText adjustPosition" id="subtotalInVoice" placeholder="Rs.900/=" type="text"><br><br>
+            <label class="commonText" for="cashInVoice">
+                <mark>Cash.</mark>
+            </label>
+            <input class="commonText adjustPosition" id="cashInVoice" placeholder="Rs.1000/=" type="text"><br><br>
+            <label class="commonText" for="discountInVoice">
+                <mark>Discount.</mark>
+            </label>
+            <input class="commonText adjustPosition" id="discountInVoice" placeholder="10%" type="text"><br><br>
+            <button class="btn btn-outline-success" id="b2" type="submit">Purchase.</button>
+
+        </div>
 
 
     </div>
-    <div class="totalDetails">
-        <label for="totalInVoice" class="commonText"><mark>Total.</mark></label>
-        <input class="commonText adjustPosition"  type="text" id="totalInVoice" placeholder="Rs.1000/="><br><br>
-        <label for="subTotalInVoice" class="commonText"><mark>Sub Total.</mark></label>
-        <input class="commonText adjustPosition"  type="text" id="subtotalInVoice" placeholder="Rs.900/="><br><br>
-        <label for="cashInVoice" class="commonText"><mark>Cash.</mark></label>
-        <input class="commonText adjustPosition"  type="text" id="cashInVoice" placeholder="Rs.1000/="><br><br>
-        <label for="discountInVoice" class="commonText"><mark>Discount.</mark></label>
-        <input class="commonText adjustPosition"  type="text" id="discountInVoice" placeholder="10%"><br><br>
-        <button class="btn btn-outline-success" type="submit" id="b2">Purchase.</button>
-
-    </div>
-
-
-
-
-</div>
 
 </main>
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="showInfo">
+<button class="btn btn-primary" data-bs-target="#exampleModal" data-bs-toggle="modal" id="showInfo" type="button">
     Launch demo modal
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5 commonText" id="exampleModalLabel">Customer Details.</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
             </div>
             <div class="modal-body commonText" id="infoBody">
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary commonText" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-secondary commonText" data-bs-dismiss="modal" type="button">Close</button>
             </div>
         </div>
     </div>

@@ -303,7 +303,7 @@ $("#csButton").on("click", function () {
 $("#showInfo").css("display", "none");
 
 /*Customer Management -  End.*/
-/*Item Management End.*/
+/*Item Management -Start.*/
 var itemArray = [];
 const itemData = "ItemData";
 
@@ -340,7 +340,7 @@ $("#itemAddButton").on("click", function () {
 
 
 });
-$("#itemTable").on("click","tbody tr",function(){
+$("#itemTable").on("click", "tbody tr", function () {
     var itemData = {
         item_id: $(this).find("td:eq(0)").text(),
         item_name: $(this).find("td:eq(1)").text(),
@@ -430,7 +430,84 @@ $("#itemSearchButton").on("click", function () {
 
 
 });
+/*Item Management -Start.*/
+/*Order Management -Start.*/
+var orderArray = [];
+const orderData = "OrderData";
 
+$("#aoButton").on("click", () => {
+    //Loading necessary data to the dropdowns.
+    custArray.forEach(function (c) {
+        $("#cIdDropdown").append("<li><a class='dropdown-item'>" + c.customer_id + "</a></li>")
+    })
+    itemArray.forEach(function (i) {
+        $("#iIdDropDown").append("<li><a class='dropdown-item'>" + i.item_Id + "</a></li>");
+        $("#iNameDropDown").append("<li><a class='dropdown-item'>" + i.item_Name + "</a></li>");
+
+    });
+
+});
+$("#cIdDropdown ").on("click", "li", function () {
+    $("#cIdButton").empty();
+    $("#cIdButton").text($(this).text());
+
+});
+
+$("#iIdDropDown").on("click", "li", function () {
+    $("#iIdButton").empty();
+    $("#iIdButton").text($(this).text());
+
+});
+$("#iNameDropDown").on("click", "li", function () {
+    $("#iNameButton").empty();
+    $("#iNameButton").text($(this).text());
+
+
+});
+$("#addOrderButton").on("click", () => {
+    /*Collecting the order details from the modal.*/
+    var orderDetails = {
+        oId: $("#oId").val(),
+        cId: $("#cIdButton").text(),
+        iId: $("#iIdButton").text(),
+        iName: $("#iNameButton").text(),
+        iPrice: $("#iPriceField").val(),
+        iQty: $("#iQtyField").val(),
+        total: parseFloat($("#iPriceField").val()) * parseFloat($("#iQtyField").val())
+
+
+    }
+    //Updating the order array.
+    orderArray.push(orderDetails);
+    //Updating the local storage.
+    localStorage.setItem(orderData, JSON.stringify(orderArray));
+    //Updating the table.
+    addOrdersToTable();
+    swal("Done!", "Order added successfully!💡", "success");
+
+
+});
+
+function clearOrderTable() {
+    $("#orderTable tbody").empty();
+}
+
+function addOrdersToTable() {
+    clearOrderTable();
+    if (localStorage.getItem(orderData)) {
+        orderArray = JSON.parse(localStorage.getItem(orderData));
+        for (let i = 0; i < orderArray.length; i++) {
+            $("#orderTable tbody").append("<tr><td>" + orderArray[i].oId + "</td><td>" + orderArray[i].cId + "</td><td>" + orderArray[i].iId + "</td><td>" + orderArray[i].iName + "</td><td>" + orderArray[i].iPrice + "</td><td>" + orderArray[i].iQty + "</td><td>" + orderArray[i].total + "</td></tr>");
+        }
+    }
+}
+
+$("#orderTable").on("click","tbody tr",function(){
+   $("#updateOrderButton").trigger("click") ;
+});
+
+addOrdersToTable();//Initializing the order table.
+/*Order Management - End.*/
 function invalidData() {
     swal("OOPS!", "Enter a valid ID.🚨", "error");
 }
