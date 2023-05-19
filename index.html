@@ -503,47 +503,47 @@
                             <label class="form-label commonText" for="oId">Order ID.</label>
                             <input class="form-control" id="uOId" placeholder="OOO1" type="text">
                         </div>
-                        <div class="dropdown">
+                        <div class="dropdown" >
                             <button aria-expanded="false" class="commonText btn btn-secondary dropdown-toggle"
-                                    data-bs-toggle="dropdown" type="button">
+                                    data-bs-toggle="dropdown" type="button" id="uCustomerIds">
                                 Customer ID's.
                             </button>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu" id="uCidDropDown">
 
                             </ul>
                         </div>
                         <br>
                         <div class="dropdown">
                             <button aria-expanded="false" class="commonText btn btn-secondary dropdown-toggle"
-                                    data-bs-toggle="dropdown" type="button">
+                                    data-bs-toggle="dropdown" type="button" id="uItemIds">
                                 Item ID's.
                             </button>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu" id="uIidDropDown">
 
                             </ul>
                         </div>
                         <br>
                         <div class="dropdown">
                             <button aria-expanded="false" class="commonText btn btn-secondary dropdown-toggle"
-                                    data-bs-toggle="dropdown" type="button">
+                                    data-bs-toggle="dropdown" type="button" id="uItemNames">
                                 Item Names.
                             </button>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu" id="uInDropDown">
 
                             </ul>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label commonText" for="uOpriceField">Item Price.</label>
-                            <input class="form-control" id="uOpriceField" placeholder="RS:1000/=" type="text">
+                            <label class="form-label commonText" for="upriceField">Item Price.</label>
+                            <input class="form-control" id="upriceField" placeholder="RS:1000/=" type="text">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label commonText" for="uOqtyField">Item QTY.</label>
-                            <input class="form-control" id="uOqtyField" placeholder="1000" type="text">
+                            <label class="form-label commonText" for="uqtyField">Item QTY.</label>
+                            <input class="form-control" id="uqtyField" placeholder="1000" type="text">
                         </div>
 
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-primary" type="button">Update.</button>
+                        <button class="btn btn-primary" type="button" id="updateOrdersButton">Update.</button>
                         <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close.</button>
 
                     </div>
@@ -553,7 +553,7 @@
         <!-- Update Order Modal - End. -->
         <!-- Button trigger modal for deleting an order - Start. -->
         <button class="btn btn-danger " data-aos="zoom-in-up" data-bs-target="#deleteOrderModal" data-bs-toggle="modal"
-                id="deleteOrderButton" type="button">
+               type="button">
             Delete an Order.
         </button>
         <!-- Button trigger modal for deleting an order - End. -->
@@ -573,7 +573,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-danger" type="button">Delete.</button>
+                        <button class="btn btn-danger" type="button" id="deleteOrderButton">Delete.</button>
                         <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close.</button>
                     </div>
                 </div>
@@ -589,8 +589,8 @@
         <nav class="navbar bg-body-tertiary" data-aos="zoom-in-up" id="ordersSearchBar">
             <div class="container-fluid">
                 <form class="d-flex" role="search">
-                    <input aria-label="Search" class="form-control me-2" placeholder="Type something..." type="search">
-                    <button class="btn btn-outline-success" type="submit">Search.</button>
+                    <input aria-label="Search" class="form-control me-2" placeholder="Type something..." type="search" id="oidField">
+                    <button class="btn btn-outline-success" type="submit" id="searchOrderButton">Search.</button>
                 </form>
             </div>
         </nav>

@@ -436,10 +436,13 @@ var orderArray = [];
 const orderData = "OrderData";
 
 $("#aoButton").on("click", () => {
+    $("#cIdDropdown").empty();
     //Loading necessary data to the dropdowns.
     custArray.forEach(function (c) {
         $("#cIdDropdown").append("<li><a class='dropdown-item'>" + c.customer_id + "</a></li>")
     })
+    $("#iIdDropDown").empty();
+    $("#iNameDropDown").empty();
     itemArray.forEach(function (i) {
         $("#iIdDropDown").append("<li><a class='dropdown-item'>" + i.item_Id + "</a></li>");
         $("#iNameDropDown").append("<li><a class='dropdown-item'>" + i.item_Name + "</a></li>");
@@ -477,6 +480,7 @@ $("#addOrderButton").on("click", () => {
 
 
     }
+
     //Updating the order array.
     orderArray.push(orderDetails);
     //Updating the local storage.
@@ -502,10 +506,130 @@ function addOrdersToTable() {
     }
 }
 
-$("#orderTable").on("click","tbody tr",function(){
-   $("#updateOrderButton").trigger("click") ;
+$("#orderTable").on("click", "tbody tr", function () {
+    //Getting the order data from the table.
+    var orderData = {
+        oId: $(this).children("td:eq(0)").text(),
+        cId: $(this).children("td:eq(1)").text(),
+        iId: $(this).children("td:eq(2)").text(),
+        iName: $(this).children("td:eq(3)").text(),
+        iPrice: $(this).children("td:eq(4)").text(),
+        iQty: $(this).children("td:eq(5)").text(),
+        total: $(this).children("td:eq(6)").text()
+    }
+    $("#updateOrderButton").trigger("click");
+    $("#uOId").val(orderData.oId);
+
+    $("#uCidDropDown").empty();
+    custArray.forEach(function (c) {
+
+        $("#uCidDropDown").append("<li><a class='dropdown-item'>" + c.customer_id + "</a></li>")
+
+    });
+    $("#uIidDropDown").empty();
+    $("#uInDropDown").empty();
+    itemArray.forEach(function (i) {
+
+        $("#uIidDropDown").append("<li><a class='dropdown-item'>" + i.item_Id + "</a></li>")
+        $("#uInDropDown").append("<li><a class='dropdown-item'>" + i.item_Name + "</a></li>")
+    });
+    $("#upriceField").val(orderData.iPrice);
+    $("#uqtyField").val(orderData.iQty);
+    $("#uTotal").val(orderData.total);
+
+
+});
+$("#updateOrdersButton").on("click", () => {
+    var updatedOrderDetails = {
+        oId: $("#uOId").val(),
+        cId: $("#uCustomerIds").text(),
+        iId: $("#uItemIds").text(),
+        iName: $("#uItemNames").text(),
+        iPrice: $("#upriceField").val(),
+        iQty: $("#uqtyField").val(),
+        total: parseFloat($("#upriceField").val()) * parseFloat($("#uqtyField").val())
+
+
+    }
+    //show and alert using above object data
+    let index = findOrderIds("#uOId");
+    if (index != -1) {
+        //Updating the order array.
+        orderArray[index] = updatedOrderDetails;
+        //Updating the local storage.
+        localStorage.setItem(orderData, JSON.stringify(orderArray));
+        //Updating the table.
+        addOrdersToTable();
+        swal("Done!", "Order updated successfully!💡", "success");
+    } else {
+        invalidData();
+    }
+
+});
+$("#uCidDropDown").on("click", "li", function () {
+    //Updating the customer id according to the selected value.
+    $("#uCustomerIds").text($(this).text());
+
+});
+$("#uIidDropDown").on("click", "li", function () {
+    //Updating the item id according to the selected value.
+    $("#uItemIds").text($(this).text());
+
+});
+$("#uInDropDown").on("click", "li", function () {
+    //Updating the item name according to the selected value.
+    $("#uItemNames").text($(this).text());
+
 });
 
+function findOrderIds(value) {
+    for (let i = 0; i < orderArray.length; i++) {
+        if (orderArray[i].oId == $(value).val()) {
+            return i;
+
+        }
+    }
+    return -1;
+
+}
+
+$("#deleteOrderButton").on("click", () => {
+    let index = findOrderIds("#oId2");
+    if (index != -1) {
+        //Deleting the order from the array.
+        orderArray.splice(index, 1);
+        //Updating the local storage.
+        localStorage.setItem(orderData, JSON.stringify(orderArray));
+        //Updating the table.
+        addOrdersToTable();
+        swal("Done!", "Order deleted successfully!💡", "success");
+
+    } else {
+        invalidData();
+    }
+});
+$("#getAllOrdersButton").on("click", () => {
+    fetchData();
+})
+$("#searchOrderButton").on("click", () => {
+    let index = findOrderIds("#oidField")
+
+    if (index != -1) {
+        //Clearing the modal before new data added.
+        $("#infoBody").empty();
+        $("#exampleModal").modal("show"); //Triggering the bootstrap modal.
+        $("#infoBody").append($("<h3></h3>").text("ORDER ID : " + orderArray[index].oId));
+        $("#infoBody").append($("<h3></h3>").text("CUSTOMER ID  : " + orderArray[index].cId));
+        $("#infoBody").append($("<h3></h3>").text("ITEM ID  : " + orderArray[index].iPrice));
+        $("#infoBody").append($("<h3></h3>").text("ITEM NAME  : " + orderArray[index].iName));
+        $("#infoBody").append($("<h3></h3>").text("ITEM PRICE (LKR)  : " + orderArray[index].iPrice));
+        $("#infoBody").append($("<h3></h3>").text("ITEM QTY  : " + orderArray[index].iQty));
+        $("#infoBody").append($("<h3></h3>").text("ITEM TOTAL (LKR)  : " + orderArray[index].total));
+
+    } else {
+        invalidData();
+    }
+});
 addOrdersToTable();//Initializing the order table.
 /*Order Management - End.*/
 function invalidData() {
