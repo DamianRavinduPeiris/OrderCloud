@@ -638,27 +638,28 @@ $("#manageInvoices").on("click", () => {
     $("#infoBody").empty();
     $("#exampleModal").modal("show");
     $("#exampleModalLabel").text("Invoice Manager.");
-    $("#infoBody").append("<input placeholder='Enter customer name...' id='csBar' formaction='clicked'>" + "<br>" + "<br>")
+    $("#infoBody").append("<input placeholder='Enter customer name...' id='csBar' >" + "<br>" + "<br>")
+    $("#infoBody").append("<input placeholder='Enter customer email...' id='emailBar' >" + "<br>" + "<br>")
     $("#infoBody").append("<button class='btn btn-primary' id='searchCustomers'>Search</button>")
 });
 /*Invoice Manager - End.*/
 $("#infoBody").on("click", "#searchCustomers", () => {
     let index = findCustName("#csBar");
     if (index != -1) {
-        $("#infoBody").append("<h3>Customer ID : " + custArray[index].customer_id + "</h3>");
+        $("#infoBody").append("<h4 id='cidInvoice'>Customer ID : " + custArray[index].customer_id + "</h4>");
         var orders = getOrderArray(custArray[index].customer_id);
         if (orders.length != 0) {
-            $("#infoBody").append("<h3>Order ID's as per below : </h3>");
+            $("#infoBody").append("<h4>Order ID's as per below : </h4>");
             orders.forEach(function (o) {
-                $("#infoBody").append("<h3>ORDER IDs : " + orderArray[o].oId + "</h3>");
+                $("#infoBody").append("<h4>ORDER ID : " + orderArray[o].oId + "</h4>");
             });
-            $("#infoBody").append("<h3>Total payment details as per below : </h3>");
+            $("#infoBody").append("<h4>Total payment details as per below : </h4>");
             var total = 0;
             orders.forEach(function (od) {
                 total += orderArray[od].total;
             });
-            $("#infoBody").append("<h3>Total (LKR) : </h3>" + total);
-
+            $("#infoBody").append("<h4 id='totalInInvoice'>Total (LKR) : </h4>" + total);
+            sendEmail(custArray[index].customer_id,custArray[index].customer_name,total);
         } else {
             swal("OOPS!", "No orders found for this customer.🚨", "error");
         }
@@ -678,3 +679,25 @@ function getOrderArray(cId) {
     }
     return indexes;
 }
+/*Sending the email.*/
+function sendEmail(customerId,customerName, totalInInvoice) {
+    // Prepare the email parameters
+    const templateParams = {
+        message: "Your order summary as per below : ",
+        customer_id: customerId,
+        owner : "orderCloud",
+        customer_name: customerName,
+        total_in_invoice: totalInInvoice,
+        customer_email : $("#emailBar").val(),
+        reply_to: "drpeiris3@gmail.com"
+    };
+
+    // Send the email using EmailJS
+    emailjs.send('service_kvc2vmj', 'template_k5h2r7h', templateParams)
+        .then(function(response) {
+            swal("Done!", "Email sent successfully!💡", "success");
+        }, function(error) {
+            swal("OOPS!", "Email sending failed!🚨", "error");
+        });
+}
+
