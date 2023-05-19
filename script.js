@@ -118,26 +118,6 @@ $("#manageOrders").on("click", function () {
 
 });
 
-function showInvoices() {
-    /*Shows the heading Item Manager.*/
-    $("#heading4").css("display", "block");
-
-    /*Shows the heading Item Manager - Table.*/
-    $(".invoiceContainer").css("display", "flex");
-    /*Adjusting the CSS.*/
-    $("#heading4").position("position", "relative");
-    $("#heading4").css("top", "100px");
-    $(".buttonContainer4").css("position", "relative");
-    $(".buttonContainer4").css("top", "150px");
-    $(".invoiceContainer").css("position", "relative");
-    $(".invoiceContainer").css("top", "200px");
-}
-
-$("#manageInvoices").on("click", function () {
-    clearAll();
-    showInvoices();
-
-});
 
 /*Functionalities.*/
 /*Customer management - Start.*/
@@ -218,6 +198,14 @@ const findId = (value) => {
     }
     return -1;
 }
+const findCustName = (value) => {
+    for (let i = 0; i < custArray.length; i++) {
+        if (custArray[i].customer_name == $(value).val()) {
+            return i;
+        }
+    }
+    return -1;
+}
 
 $("#cUpdateButton").on("click", function () {
     updateCustomer();
@@ -287,6 +275,7 @@ $("#csButton").on("click", function () {
     let elementNo = findId("#cidField");
     if (elementNo != -1) {
         $("#exampleModal").modal("show"); //Triggering the bootstrap modal.
+        $("#exampleModalLabel").text("Customer Details.");
         $("#infoBody").append($("<h3></h3>").text("CUSTOMER ID : " + custArray[findId("#cidField")].customer_id));
         $("#infoBody").append($("<h3></h3>").text("CUSTOMER NAME : " + custArray[findId("#cidField")].customer_name));
         $("#infoBody").append($("<h3></h3>").text("CUSTOMER ADDRESS : " + custArray[findId("#cidField")].customer_address));
@@ -311,6 +300,7 @@ function clearItemTable() {
     $("#itemTable tbody").empty();
 }
 
+addToItemTable();//Initial loading of the table.
 function addToItemTable() {
     clearItemTable();
     if (localStorage.getItem(itemData)) {
@@ -420,6 +410,7 @@ $("#itemSearchButton").on("click", function () {
     let elementNo = findItemElementNo("#itemIdField");
     if (elementNo != -1) {
         $("#exampleModal").modal("show"); //Triggering the bootstrap modal.
+        $("#exampleModalLabel").text("Item Details.");
         $("#infoBody").append($("<h3></h3>").text("ITEM ID : " + itemArray[elementNo].item_Id));
         $("#infoBody").append($("<h3></h3>").text("ITEM NAME : " + itemArray[elementNo].item_Name));
         $("#infoBody").append($("<h3></h3>").text("ITEM PRICE  : " + itemArray[elementNo].item_price));
@@ -618,6 +609,8 @@ $("#searchOrderButton").on("click", () => {
         //Clearing the modal before new data added.
         $("#infoBody").empty();
         $("#exampleModal").modal("show"); //Triggering the bootstrap modal.
+        $("#modalHeading").empty();
+        $("#exampleModalLabel").text("Order Details.");
         $("#infoBody").append($("<h3></h3>").text("ORDER ID : " + orderArray[index].oId));
         $("#infoBody").append($("<h3></h3>").text("CUSTOMER ID  : " + orderArray[index].cId));
         $("#infoBody").append($("<h3></h3>").text("ITEM ID  : " + orderArray[index].iPrice));
@@ -632,6 +625,56 @@ $("#searchOrderButton").on("click", () => {
 });
 addOrdersToTable();//Initializing the order table.
 /*Order Management - End.*/
-function invalidData() {
-    swal("OOPS!", "Enter a valid ID.🚨", "error");
+function invalidData(message) {
+    if (message) {
+        swal("OOPS!", message, "error");
+    } else {
+        swal("OOPS!", "Enter a valid ID.🚨", "error");
+    }
+}
+
+/*Invoice Manager - Start.*/
+$("#manageInvoices").on("click", () => {
+    $("#infoBody").empty();
+    $("#exampleModal").modal("show");
+    $("#exampleModalLabel").text("Invoice Manager.");
+    $("#infoBody").append("<input placeholder='Enter customer name...' id='csBar' formaction='clicked'>" + "<br>" + "<br>")
+    $("#infoBody").append("<button class='btn btn-primary' id='searchCustomers'>Search</button>")
+});
+/*Invoice Manager - End.*/
+$("#infoBody").on("click", "#searchCustomers", () => {
+    let index = findCustName("#csBar");
+    if (index != -1) {
+        $("#infoBody").append("<h3>Customer ID : " + custArray[index].customer_id + "</h3>");
+        var orders = getOrderArray(custArray[index].customer_id);
+        if (orders.length != 0) {
+            $("#infoBody").append("<h3>Order ID's as per below : </h3>");
+            orders.forEach(function (o) {
+                $("#infoBody").append("<h3>ORDER IDs : " + orderArray[o].oId + "</h3>");
+            });
+            $("#infoBody").append("<h3>Total payment details as per below : </h3>");
+            var total = 0;
+            orders.forEach(function (od) {
+                total += orderArray[od].total;
+            });
+            $("#infoBody").append("<h3>Total (LKR) : </h3>" + total);
+
+        } else {
+            swal("OOPS!", "No orders found for this customer.🚨", "error");
+        }
+
+    } else {
+        invalidData("Invalid customer name.🚨");
+    }
+});
+
+function getOrderArray(cId) {
+    var indexes = [];
+    for (let i = 0; i < orderArray.length; i++) {
+        if (orderArray[i].cId == cId) {
+            indexes.push(i)
+
+        }
+    }
+    return indexes;
 }
