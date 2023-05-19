@@ -638,8 +638,8 @@ $("#manageInvoices").on("click", () => {
     $("#infoBody").empty();
     $("#exampleModal").modal("show");
     $("#exampleModalLabel").text("Invoice Manager.");
-    $("#infoBody").append("<input placeholder='Enter customer name...' id='csBar' >" + "<br>" + "<br>")
-    $("#infoBody").append("<input placeholder='Enter customer email...' id='emailBar' >" + "<br>" + "<br>")
+    $("#infoBody").append("<input placeholder='Enter customer name...' id='csBar' type='text'>" + "<br>" + "<br>")
+    $("#infoBody").append("<input placeholder='Enter customer email...' id='emailBar' type='email' >" + "<br>" + "<br>")
     $("#infoBody").append("<button class='btn btn-primary' id='searchCustomers'>Search</button>")
 });
 /*Invoice Manager - End.*/
