@@ -476,7 +476,7 @@ $("#addOrderButton").on("click", () => {
     for (let i = 0; i < itemArray.length; i++) {
         if (itemArray[i].item_Id === orderDetails.iId) {
             if (itemArray[i].item_qty < orderDetails.iQty) {
-                return invalidData("We only have " + itemArray[i].item_qty + itemArray[i].item_Name + " 's in the stock!");
+                return invalidData("We only have " + itemArray[i].item_qty +" "+ itemArray[i].item_Name + " 's in the stock!");
 
             }
         }
