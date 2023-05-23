@@ -1,6 +1,11 @@
 # <u>🛒 `OrderCloud.`<u>
 
 ## 💡 Simple POS system built with  <a href="https://getbootstrap.com" target=_blank>`Bootstrap 5.`</a>
+  
+✅ Uses JavaScript `local storage API` to perform CRUD operations on `customers` , `items` and `orders`.  
+✅ Ability to send invoices as an email for the customers. <a href="https://www.emailjs.com/" target=_blank>`EmailJS`</a> library.<br><br>
+  
+  
 
 
 
