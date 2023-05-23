@@ -306,7 +306,7 @@ function addToItemTable() {
     if (localStorage.getItem(itemData)) {
         itemArray = JSON.parse(localStorage.getItem(itemData));
         for (let i = 0; i < itemArray.length; i++) {
-            $("#itemTable tbody").append("<tr><td>" + itemArray[i].item_Id + "</td><td>" + itemArray[i].item_Name + "</td><td>" + itemArray[i].item_qty + "</td><td>" + itemArray[i].item_price + "</td></tr>");
+            $("#itemTable tbody").append("<tr><td>" + itemArray[i].item_Id + "</td><td>" + itemArray[i].item_Name + "</td><td>" + itemArray[i].item_price + "</td><td>" + itemArray[i].item_qty + "</td></tr>");
         }
     }
 }
@@ -458,9 +458,10 @@ $("#iNameDropDown").on("click", "li", function () {
 
 
 });
+var orderDetails;
 $("#addOrderButton").on("click", () => {
     /*Collecting the order details from the modal.*/
-    var orderDetails = {
+     orderDetails = {
         oId: $("#oId").val(),
         cId: $("#cIdButton").text(),
         iId: $("#iIdButton").text(),
@@ -471,9 +472,27 @@ $("#addOrderButton").on("click", () => {
 
 
     }
+    //Checking current stock.
+    for (let i = 0; i < itemArray.length; i++) {
+        if (itemArray[i].item_Id === orderDetails.iId) {
+            if (itemArray[i].item_qty < orderDetails.iQty) {
+                return invalidData("We only have " + itemArray[i].item_qty + itemArray[i].item_Name + " 's in the stock!");
 
-    //Updating the order array.
+            }
+        }
+
+    }
+    //Adding the order to the order array.
     orderArray.push(orderDetails);
+    //Updating item qty.
+    itemArray.forEach((item, index) => {
+        if (itemArray[index].item_Id === orderDetails.iId) {
+            itemArray[index].item_qty = itemArray[index].item_qty - parseFloat(orderDetails.iQty);
+            updateItemLocalStorage(itemArray)
+
+        }
+
+    })
     //Updating the local storage.
     localStorage.setItem(orderData, JSON.stringify(orderArray));
     //Updating the table.
@@ -659,7 +678,7 @@ $("#infoBody").on("click", "#searchCustomers", () => {
                 total += orderArray[od].total;
             });
             $("#infoBody").append("<h4 id='totalInInvoice'>Total (LKR) : </h4>" + total);
-            sendEmail(custArray[index].customer_id,custArray[index].customer_name,total);
+            sendEmail(custArray[index].customer_id, custArray[index].customer_name, total);
         } else {
             swal("OOPS!", "No orders found for this customer.🚨", "error");
         }
@@ -679,24 +698,25 @@ function getOrderArray(cId) {
     }
     return indexes;
 }
+
 /*Sending the email.*/
-function sendEmail(customerId,customerName, totalInInvoice) {
+function sendEmail(customerId, customerName, totalInInvoice) {
     // Prepare the email parameters
     const templateParams = {
         message: "Your order summary as per below : ",
         customer_id: customerId,
-        owner : "orderCloud",
+        owner: "orderCloud",
         customer_name: customerName,
         total_in_invoice: totalInInvoice,
-        customer_email : $("#emailBar").val(),
+        customer_email: $("#emailBar").val(),
         reply_to: "drpeiris3@gmail.com"
     };
 
     // Send the email using EmailJS
     emailjs.send('service_kvc2vmj', 'template_k5h2r7h', templateParams)
-        .then(function(response) {
+        .then(function (response) {
             swal("Done!", "Email sent successfully!💡", "success");
-        }, function(error) {
+        }, function (error) {
             swal("OOPS!", "Email sending failed!🚨", "error");
         });
 }
