@@ -205,8 +205,20 @@ export class OrderController {
 
 
     updateOrderArray() {
+        orderData = new Order($("#uOId").val(), $("#uCustomerIds").text(), $("#uItemIds").text(), $("#uItemNames").text(), $("#upriceField").val(), $("#uqtyField").val(), parseFloat($("#upriceField").val()) * parseFloat($("#uqtyField").val()));
         let index = this.findOrderId($("#uOId").val());
         if (index !== -1) {
+            /* Checking current stock.*/
+            for (let i = 0; i < itemArray.length; i++) {
+                console.log(itemArray[i]._item_id);
+                if (itemArray[i]._item_id === orderData._iId) {
+                    if (itemArray[i]._item_qty < orderData._iQty) {
+                        return new AlertController().showAlert("error", "We only have " + itemArray[i]._item_qty + " " + itemArray[i]._item_name + "'s in stock. Please reduce the quantity.");
+
+                    }
+                }
+
+            }
             orderData = new Order($("#uOId").val(), $("#uCustomerIds").text(), $("#uItemIds").text(), $("#uItemNames").text(), $("#upriceField").val(), $("#uqtyField").val(), parseFloat($("#upriceField").val()) * parseFloat($("#uqtyField").val()));
             orderArray[index] = orderData;
             new LocalStorageDB().updateLocalStorage(data, orderArray);
