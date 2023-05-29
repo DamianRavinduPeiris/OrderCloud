@@ -9,7 +9,7 @@
 
 
 
-![image](https://user-images.githubusercontent.com/115478137/235868206-2c54c34d-c5a6-4718-ba3e-2a2df819dc65.png)
+![image](https://github.com/DamianRavinduPeiris/OrderCloud/assets/115478137/1bf7f2ff-83ad-4b00-8e91-93a33b6211be)
 
 
 ### 🚀 Now live at 👉  <a href="https://ordercloudbydamian.pages.dev" target=_blank>`https://ordercloudbydamian.pages.dev`</a>
