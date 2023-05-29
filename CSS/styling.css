@@ -1,3 +1,4 @@
+
 img{
     height: 200px;
     width: 200px;
@@ -8,7 +9,7 @@ img{
 }
 .navBarText{
     position: relative;
-    left: 290px;
+    left: 500px;
     text-align: center;
     font-weight: bold;
     font-family: 'Tilt Warp', cursive;

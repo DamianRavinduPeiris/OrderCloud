@@ -1,58 +1,59 @@
+/*
 clearAll();
 showCustomers();
 
 
 function clearAll() {
-    /*Hid the heading Item Manager.*/
+    /!*Hid the heading Item Manager.*!/
     $("#heading2").css("display", "none");
 
-    /*Hid the heading Item Manager - buttons.*/
+    /!*Hid the heading Item Manager - buttons.*!/
     $(".buttonContainer2").css("display", "none");
 
-    /*Hid the heading Item Manager - Table.*/
+    /!*Hid the heading Item Manager - Table.*!/
     $("#itemTable").css("display", "none");
 
-    /*Hid the heading Order Manager.*/
+    /!*Hid the heading Order Manager.*!/
     $("#heading3").css("display", "none");
 
-    /*Hid the heading Order Manager - buttons.*/
+    /!*Hid the heading Order Manager - buttons.*!/
     $(".buttonContainer3").css("display", "none");
 
-    /*Hid the heading Item Manager - Table.*/
+    /!*Hid the heading Item Manager - Table.*!/
     $("#orderTable").css("display", "none");
 
-    /*Hid the heading Invoice Manager.*/
+    /!*Hid the heading Invoice Manager.*!/
     $("#heading4").css("display", "none");
 
-    /*Hid the Invoice container.*/
+    /!*Hid the Invoice container.*!/
     $(".invoiceContainer").css("display", "none");
 
 
-    /*Hid the heading Invoice Manager.*/
+    /!*Hid the heading Invoice Manager.*!/
     $("#heading1").css("display", "none");
 
-    /*Hid the Invoice container.*/
+    /!*Hid the Invoice container.*!/
     $(".buttonContainer").css("display", "none");
 
-    /*Hid the Customer table.*/
+    /!*Hid the Customer table.*!/
     $("#customerTable").css("display", "none");
 
 }
 
 
-/*Button actions.*/
+/!*Button actions.*!/
 
-/*Home Button.*/
+/!*Home Button.*!/
 $("#homeButton").on("click", function () {
     window.location.reload();
 });
 
-/*Managing Customers.*/
+/!*Managing Customers.*!/
 $("#manageCustomers").on("click", function () {
     clearAll()
     showCustomers();
 });
-/*Managing Items.*/
+/!*Managing Items.*!/
 
 $("#manageItems").on("click", function () {
     clearAll();
@@ -62,27 +63,27 @@ $("#manageItems").on("click", function () {
 });
 
 function showCustomers() {
-    /*Shows the heading Item Manager.*/
+    /!*Shows the heading Item Manager.*!/
     $("#heading1").css("display", "block");
 
-    /*Shows the heading Item Manager - buttons.*/
+    /!*Shows the heading Item Manager - buttons.*!/
     $(".buttonContainer").css("display", "flex");
 
-    /*Shows the heading Item Manager - Table.*/
+    /!*Shows the heading Item Manager - Table.*!/
     $("#customerTable").css("display", "inline-table");
 
 }
 
 function showItems() {
-    /*Shows the heading Item Manager.*/
+    /!*Shows the heading Item Manager.*!/
     $("#heading2").css("display", "block");
 
-    /*Shows the heading Item Manager - buttons.*/
+    /!*Shows the heading Item Manager - buttons.*!/
     $(".buttonContainer2").css("display", "flex");
 
-    /*Shows the heading Item Manager - Table.*/
+    /!*Shows the heading Item Manager - Table.*!/
     $("#itemTable").css("display", "inline-table");
-    /*Adjusting the CSS.*/
+    /!*Adjusting the CSS.*!/
     $("#heading2").position("position", "relative");
     $("#heading2").css("top", "150px");
     $(".buttonContainer2").css("position", "relative");
@@ -94,15 +95,15 @@ function showItems() {
 }
 
 function showOrders() {
-    /*Shows the heading Item Manager.*/
+    /!*Shows the heading Item Manager.*!/
     $("#heading3").css("display", "block");
 
-    /*Shows the heading Item Manager - buttons.*/
+    /!*Shows the heading Item Manager - buttons.*!/
     $(".buttonContainer3").css("display", "flex");
 
-    /*Shows the heading Item Manager - Table.*/
+    /!*Shows the heading Item Manager - Table.*!/
     $("#orderTable").css("display", "inline-table");
-    /*Adjusting the CSS.*/
+    /!*Adjusting the CSS.*!/
     $("#heading3").position("position", "relative");
     $("#heading3").css("top", "100px");
     $(".buttonContainer3").css("position", "relative");
@@ -117,6 +118,7 @@ $("#manageOrders").on("click", function () {
     showOrders();
 
 });
+*/
 
 
 /*Functionalities.*/
@@ -141,6 +143,7 @@ function addToTable() {
 }
 
 $("#customerAddButton").on("click", function () {
+
     var customer = {
         customer_id: $("#cId").val(),
         customer_name: $("#cName").val(),
@@ -225,7 +228,7 @@ function updateCustomer() {
         custArray[elementNo] = updatedCustomerData;
         //Updating the local storage.
         updateLocalStorage(custArray);
-        //Updating the local storage.
+        //Updating the table.
         addToTable();
         swal("DONE!", "Customer updated successfully!💡", "success");
     } else {
